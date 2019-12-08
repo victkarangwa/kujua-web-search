@@ -1,0 +1,25 @@
+{
+  "name": "anonymity",
+  "version": "1.0.0",
+  "description": "Simple react app",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorkarangwa4/anonymity.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorkarangwa4/anonymity/issues"
+  },
+  "homepage": "https://github.com/victorkarangwa4/anonymity#readme",
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
