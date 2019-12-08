@@ -5,7 +5,7 @@ class FormContainer extends Component {
     constructor() {
         super();
         this.state = {
-            seo_title: ""
+            
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -17,11 +17,24 @@ class FormContainer extends Component {
         return (
             <form id="user-form">
                 <Input
-                    text="Display Name"
+                    text="Email"
                     label="display_name"
-                    type="text"
+                    type="email"
                     id="display_name"
-                    value={seo_title}
+                    handleChange={this.handleChange}
+                />
+                <Input
+                    text="Password"
+                    label="display_name"
+                    type="password"
+                    id="display_name"
+                    handleChange={this.handleChange}
+                />
+                <Input
+                    label="display_name"
+                    type="submit"
+                    value="sign in"
+                    id="display_name"
                     handleChange={this.handleChange}
                 />
             </form>
