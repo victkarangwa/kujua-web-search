@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
-const Input = ({ label, text, type, id, value, handleChange }) => (
+const Input = ({ label, text, type, id, value, handleChange, placeholder }) => (
     <div className="form-group">
         <label htmlFor={label}>{text}</label>
         <input
             type={type}
-            className="form-control"
+            className={id}
             id={id}
             value={value}
+            placeholder={placeholder}
             onChange={handleChange}
             required
         />
@@ -19,6 +20,7 @@ Input.propTypes = {
     type: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string.isRequired,
     handleChange: PropTypes.func.isRequired
 };
 export default Input;

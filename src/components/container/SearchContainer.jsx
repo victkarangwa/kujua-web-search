@@ -5,7 +5,7 @@ class FormContainer extends Component {
     constructor() {
         super();
         this.state = {
-            seo_title: ""
+            
         };
         this.handleChange = this.handleChange.bind(this);
     }
@@ -15,16 +15,23 @@ class FormContainer extends Component {
     render() {
         const { seo_title } = this.state;
         return (
-            <form id="user-form">
+            <div className="search-box-container">
+                <div className="search-box">
+
                 <Input
-                    text="Display Name"
-                    label="display_name"
                     type="text"
-                    id="display_name"
-                    value={seo_title}
+                    id="search-input"
+                    placeholder="I'm searching for ..."
                     handleChange={this.handleChange}
                 />
-            </form>
+                <Input
+                    value="Search"
+                    type="button"
+                    id="search-btn"
+                    handleChange={this.handleChange}
+                />
+                </div>
+            </div>
         );
     }
 }
