@@ -1,4 +1,6 @@
-# Welcome to Anonymity App!
+[![Build Status](https://travis-ci.org/victorkarangwa4/kujua-web-search.svg?branch=develop)](https://travis-ci.org/victorkarangwa4/kujua-web-search)
+
+# Welcome to Kujua App!
 
 This is a simple react application for demonstration purpose
 
