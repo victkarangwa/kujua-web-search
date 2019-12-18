@@ -15,29 +15,23 @@ class FormContainer extends Component {
     render() {
         const { seo_title } = this.state;
         return (
-            <form id="user-form">
+            <div className="search-box-container">
+                <div className="search-box">
+
                 <Input
-                    text="Email"
-                    label="display_name"
-                    type="email"
-                    id="display_name"
+                    type="text"
+                    id="search-input"
+                    placeholder="I'm searching for ..."
                     handleChange={this.handleChange}
                 />
                 <Input
-                    text="Password"
-                    label="display_name"
-                    type="password"
-                    id="display_name"
+                    value="Search"
+                    type="button"
+                    id="search-btn"
                     handleChange={this.handleChange}
                 />
-                <Input
-                    label="display_name"
-                    type="submit"
-                    value="sign in"
-                    id="display_name"
-                    handleChange={this.handleChange}
-                />
-            </form>
+                </div>
+            </div>
         );
     }
 }
