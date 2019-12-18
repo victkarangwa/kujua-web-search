@@ -1,5 +1,9 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+// const HtmlWebPackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack');
+const path = require('path');
 module.exports = {
+    mode: "development",
+    entry: path.resolve(__dirname, 'src/index'),
     module: {
         rules: [
             {
@@ -24,9 +28,13 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
-        })
-    ]
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        contentBase: path.resolve(__dirname, 'public/'),
+        publicPath: "http://localhost:9000/dist",
+        historyApiFallback: true,
+        port: 9000,
+        hotOnly: true
+    },
 }
