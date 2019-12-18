@@ -1,6 +1,9 @@
 // const HtmlWebPackPlugin = require("html-webpack-plugin");
+const dotenv =require('dotenv');
 const webpack = require('webpack');
 const path = require('path');
+
+dotenv.config();
 module.exports = {
     mode: "development",
     entry: path.resolve(__dirname, 'src/index'),
@@ -28,13 +31,15 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        
+        
     ],
     devServer: {
         contentBase: path.resolve(__dirname, 'public/'),
-        publicPath: "http://localhost:9000/dist",
+        publicPath: "http://localhost:3000/dist",
         historyApiFallback: true,
-        port: 9000,
+        port: process.env.PORT || 7000,
         hotOnly: true
     },
 }
