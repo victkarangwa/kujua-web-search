@@ -4,8 +4,10 @@
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
+
     "start": "node server.js",
     "serve": "webpack-dev-server --mode development --open --config webpack.config.js",
+
     "build": "webpack --mode production",
     "test": "jest"
   },
@@ -19,7 +21,9 @@
     "url": "https://github.com/victorkarangwa4/anonymity/issues"
   },
   "homepage": "https://github.com/victorkarangwa4/anonymity#readme",
+
   "devDependencies": {},
+
   "dependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
@@ -63,5 +67,6 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/mock/fileMock.js",
       "\\.(css|scss)$": "identity-obj-proxy"
     }
+
   }
 }

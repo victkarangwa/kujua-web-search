@@ -8,6 +8,12 @@ import Homepage from './components/Homepage'
 import Results from './components/Results';
 import './styles/App.css'
 
+// function reducer(){
+//  return {
+//      query: 'Hello'
+//  }
+// }
+//  const store = createStore(reducer);
 const App = () => {
     return (
         <Provider store={store}>

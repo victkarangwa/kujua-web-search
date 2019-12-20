@@ -17,6 +17,7 @@ class Results extends Component {
         this.getResult();
     }
     getResult(){
+
         const { get } = require('axios')
         const apiOptions = {
             headers: {
@@ -29,11 +30,13 @@ class Results extends Component {
             .then(response => response.data)
             .then(res => {
                 this.props.queryResults(res)
+
             })
             .catch(err => {
                 console.log('kujua ERROR:', err);
 
             })
+
     }
     componentDidMount(){
         this.getResult();
@@ -43,6 +46,7 @@ class Results extends Component {
       const  handleChange=({ target }) =>{
           this.props.searchKey(target.value)
         }
+
         return (
 
             <div className="top-search-box grid">
@@ -53,7 +57,9 @@ class Results extends Component {
                         id="search-input"
                         placeholder="I'm searching for ..."
                         value={this.props.queries.query}
+
                         handleChange={handleChange}
+
                     />
                     <Input
                         value="Search"

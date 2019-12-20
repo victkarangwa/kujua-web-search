@@ -1,6 +1,7 @@
 const initialState = {
       query: 'Hello world'  
     }
+
 const queries = (state = initialState, action) =>{
     switch (action.type) {
         case 'SEARCH_KEY':
