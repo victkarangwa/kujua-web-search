@@ -28,11 +28,13 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        
+        
     ],
     devServer: {
         contentBase: path.resolve(__dirname, 'public/'),
-        publicPath: "http://localhost:9000/dist",
+        publicPath: "http://localhost:3000/dist",
         historyApiFallback: true,
         port: 9000,
         hotOnly: true
