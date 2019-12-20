@@ -39,6 +39,8 @@ class Results extends Component {
 
     }
     componentDidMount(){
+
+        
         this.getResult();
 
     }
@@ -88,9 +90,12 @@ class Results extends Component {
                    
                
                 <div className="pic-info-area">
+                            {this.props.queries &&
                     <div className="result-pic">
                                 <img className="picture" src={this.props.queries.results.results[0].iurl}/>
                     </div>
+
+                    }
                             <div className="result-short-info">{this.props.queries.results.results[0].kwic}</div>
                 </div>
                 </div> 
