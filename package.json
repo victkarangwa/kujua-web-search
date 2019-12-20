@@ -4,12 +4,11 @@
   "description": "Simple react app",
   "main": "index.js",
   "scripts": {
-
     "start": "node server.js",
     "serve": "webpack-dev-server --mode development --open --config webpack.config.js",
-
     "build": "webpack --mode production",
-    "test": "jest"
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "test": "jest && jest --coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
@@ -21,9 +20,7 @@
     "url": "https://github.com/victorkarangwa4/anonymity/issues"
   },
   "homepage": "https://github.com/victorkarangwa4/anonymity#readme",
-
   "devDependencies": {},
-
   "dependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
@@ -31,6 +28,7 @@
     "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "babel-preset-react": "^6.24.1",
+    "coveralls": "^3.0.9",
     "css-loader": "^3.2.1",
     "dotenv": "^8.2.0",
     "enzyme": "^3.11.0",
@@ -67,6 +65,5 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/mock/fileMock.js",
       "\\.(css|scss)$": "identity-obj-proxy"
     }
-
   }
 }

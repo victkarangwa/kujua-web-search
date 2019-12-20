@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
-import { queryLink,  } from '../../../redux/actions';
+import { queryLink } from '../../../redux/actions';
 
 const handleClick =(props)=>{
     const { get } = require('axios')
@@ -16,7 +16,7 @@ const handleClick =(props)=>{
         .then(res=>{
             const shortnedURL =res.split('"')[1];
             navigator.clipboard.writeText(shortnedURL)
-            
+            props.queryLink(shortnedURL);
         })
         .catch(err => {
             console.log(err);
@@ -35,14 +35,15 @@ const Result = (props) => {
             </div>
         <p className="result-sub-link">{resultSubLink}</p>
         <p className="result-paragraph">{resultParagraph}</p>
+            <p className="result-paragraph">Shortned URL:{props.queryLink}</p>
     </div>
 )};
-// Result.propTypes = {
-//     resultTitle: PropTypes.string.isRequired,
-//     resultURL: PropTypes.string.isRequired,
-//     resultSubLink: PropTypes.string.isRequired,
-//     resultParagraph : PropTypes.string.isRequired,       
-// };
+Result.propTypes = {
+    resultTitle: PropTypes.string.isRequired,
+    resultURL: PropTypes.string.isRequired,
+    resultSubLink: PropTypes.string.isRequired,
+    resultParagraph : PropTypes.string.isRequired,       
+};
 
 
 const mapStateToProps = (state) => {
