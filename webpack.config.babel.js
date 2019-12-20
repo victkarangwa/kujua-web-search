@@ -1,6 +1,6 @@
 // const HtmlWebPackPlugin = require("html-webpack-plugin");
 const dotenv =require('dotenv');
-const webpack = require('webpack');
+import webpack from 'webpack';
 const path = require('path');
 
 dotenv.config();
