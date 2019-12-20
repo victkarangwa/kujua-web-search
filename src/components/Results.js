@@ -6,22 +6,18 @@ import SingleResult from './common/presentational/SingleResult.jsx'
 import Spinner from './common/spinner.jsx';
 import Homepage from './Homepage';
 
-let userInput = '';
 class Results extends Component {
 
     constructor(props) {
         super(props)
     }
-    handleChange({ target }) {
-        userInput = target.value;
-       
-    }
+   
 
     handleClick() {
-       this.props.searchKey(userInput)
-        
+        this.getResult();
     }
-    componentDidMount(){
+    getResult(){
+
         const { get } = require('axios')
         const apiOptions = {
             headers: {
@@ -34,7 +30,7 @@ class Results extends Component {
             .then(response => response.data)
             .then(res => {
                 this.props.queryResults(res)
-                // console.log(this.props.queries.results.results);
+
             })
             .catch(err => {
                 console.log('kujua ERROR:', err);
@@ -42,9 +38,15 @@ class Results extends Component {
             })
 
     }
-    render() {
+    componentDidMount(){
+        this.getResult();
 
-       // this.handleClick(this.props.queries);
+    }
+    render() {
+      const  handleChange=({ target }) =>{
+          this.props.searchKey(target.value)
+        }
+
         return (
 
             <div className="top-search-box grid">
@@ -55,7 +57,9 @@ class Results extends Component {
                         id="search-input"
                         placeholder="I'm searching for ..."
                         value={this.props.queries.query}
-                        handleChange={this.handleChange}
+
+                        handleChange={handleChange}
+
                     />
                     <Input
                         value="Search"
@@ -103,7 +107,6 @@ class Results extends Component {
 }
 
 const mapStateToProps = (state) => {
-    
     return state
 };
 export default connect(mapStateToProps, { searchKey, queryResults}) (Results);

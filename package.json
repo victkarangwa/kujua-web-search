@@ -9,7 +9,7 @@
     "serve": "webpack-dev-server --mode development --open --config webpack.config.js",
 
     "build": "webpack --mode production",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -21,32 +21,52 @@
     "url": "https://github.com/victorkarangwa4/anonymity/issues"
   },
   "homepage": "https://github.com/victorkarangwa4/anonymity#readme",
-  "devDependencies": {
-  },
+
+  "devDependencies": {},
+
   "dependencies": {
     "@babel/core": "^7.7.5",
     "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.7.4",
+    "axios": "^0.19.0",
     "babel-loader": "^8.0.6",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^3.2.1",
+    "dotenv": "^8.2.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.9.0",
     "prop-types": "^15.7.2",
-    "redux-devtools": "^3.5.0",
-    "style-loader": "^1.0.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0",
-    "axios": "^0.19.0",
-    "dotenv": "^8.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-loader-spinner": "^3.1.5",
     "react-redux": "^7.1.3",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
+    "react-test-renderer": "^16.12.0",
     "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0"
+    "redux-devtools": "^3.5.0",
+    "redux-thunk": "^2.3.0",
+    "style-loader": "^1.0.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js",
+      "!data/keyMap.js",
+      "!/node_modules/"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/tests/setupTests.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/src/tests/mock/fileMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
+
   }
 }
