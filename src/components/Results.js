@@ -5,7 +5,6 @@ import Input from './common/presentational/Input.jsx';
 import SingleResult from './common/presentational/SingleResult.jsx';
 import Spinner from './common/spinner.jsx';
 import Homepage from './Homepage';
-
 export class Results extends Component {
   constructor(props) {
     super(props);
