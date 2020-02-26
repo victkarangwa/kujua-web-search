@@ -1,4 +1,3 @@
-// module.exports = 'test-file-stub';
 
 export const homePageProps = {
   searchKey: jest.fn()
@@ -172,3 +171,4 @@ export const resultsPageProps = {
          },
          queryResults: jest.fn()
        };
+

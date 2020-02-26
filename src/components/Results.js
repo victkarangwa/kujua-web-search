@@ -112,7 +112,6 @@ export class Results extends Component {
 }
 
 export const mapStateToProps = state => {
-  
   return state;
 };
 export default connect(mapStateToProps, { searchKey, queryResults })(Results);

@@ -31,6 +31,7 @@ class SingleResults extends Component {
     } = this.props;
       return (
 
+
     <div className='single-result'>
       <div className='link-icon-container'>
         <a className='result-title' href={resultSubLink}>
