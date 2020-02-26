@@ -13,4 +13,3 @@ This is a simple react application for demonstration purpose
 3. Run `npm install` to install app dependencies
 4. Finally, run `npm run serve` to start the server
 5. App should open itself from you default browser
-
