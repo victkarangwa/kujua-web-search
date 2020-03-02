@@ -5,34 +5,41 @@ import Input from './common/presentational/Input.jsx';
 import SingleResult from './common/presentational/SingleResult.jsx';
 import Spinner from './common/spinner.jsx';
 import Homepage from './Homepage';
+import { ToastContainer, toast } from 'react-toastify';
+// import ' react-toastify/dist/ReactToastify.css';
+import '../../node_modules/react-toastify/dist/ReactToastify.css';
 
 export class Results extends Component {
   constructor(props) {
     super(props);
+    this.state = { spin: false };
   }
 
   handleClick() {
+    this.setState({ spin: true });
     this.getResult();
   }
   getResult() {
-    const { get } = require('axios');
-    const apiOptions = {
-      headers: {
-        'x-rapidapi-host': 'faroo-faroo-web-search.p.rapidapi.com',
-        'x-rapidapi-key': '1f778b39fcmshedfb4cd05ee9dd6p18bce6jsnd389bbc7715b'
-      }
-    };
-    const BASE_URL =
-      `https://faroo-faroo-web-search.p.rapidapi.com/api?q=` +
-      this.props.queries.query;
-    get(BASE_URL, apiOptions)
-      .then(response => response.data)
-      .then(res => {
-        this.props.queryResults(res);
-      })
-      .catch(err => {
-        console.log('kujua ERROR:', err);
-      });
+    try {
+      const { get } = require('axios');
+      const apiOptions = {
+        headers: {
+          'x-rapidapi-host': 'faroo-faroo-web-search.p.rapidapi.com',
+          'x-rapidapi-key': '1f778b39fcmshedfb4cd05ee9dd6p18bce6jsnd389bbc7715b'
+        }
+      };
+      const BASE_URL =
+        `https://faroo-faroo-web-search.p.rapidapi.com/api?q=` +
+        this.props.queries.query;
+      get(BASE_URL, apiOptions)
+        .then(response => response.data)
+        .then(res => {
+          this.props.queryResults(res);
+        this.setState({ spin: false });
+        });
+    } catch (error) {
+      console.log('kujua ERROR:', err);
+    }
   }
   componentDidMount() {
     this.getResult();
@@ -44,6 +51,7 @@ export class Results extends Component {
 
     return (
       <div className='top-search-box grid'>
+        <ToastContainer />
         <div className='search-box'>
           <p className='side-title'>Kujua</p>
           <Input
@@ -62,7 +70,7 @@ export class Results extends Component {
             handleClick={() => this.handleClick()}
           />
         </div>
-        {this.props.queries.results ? (
+        { !this.state.spin && this.props.queries.results ? (
           this.props.queries.results.results ? (
             <div className='result-area'>
               <div>
